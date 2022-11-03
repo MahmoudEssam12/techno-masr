@@ -1,0 +1,38 @@
+.cart_item {
+    background-color: #fff;
+    padding: 2rem;
+    border-bottom: 1px solid #ccc;
+
+    .product_details {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .info {
+        display: flex;
+        gap: 1rem;
+        padding-bottom: 1rem;
+
+        img {
+            max-width: 150px;
+            border: 1px solid #ccc;
+        }
+
+        .product_detail {
+            display: block;
+            margin: 0.2rem 0;
+        }
+
+    }
+
+    .controls {
+        display: flex;
+        justify-content: space-between;
+
+        .qty span {
+            display: inline-block;
+            margin: 0 1rem;
+            font-size: 1.2rem;
+        }
+    }
+}

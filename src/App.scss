@@ -1,0 +1,36 @@
+.inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+
+    button {
+        font-size: 1rem;
+        padding: 0.7rem;
+    }
+
+    .register-inputs {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+
+        .flex-input {
+            flex-basis: 47%;
+        }
+
+
+        @media(max-width:500px) {
+            flex-wrap: wrap;
+
+            .flex-input {
+                flex-basis: 100%;
+            }
+        }
+    }
+
+    .form-link {
+        color: #1976d2;
+        display: inline-block;
+        margin-left: 5px;
+    }
+}
