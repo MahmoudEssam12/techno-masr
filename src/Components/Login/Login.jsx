@@ -9,6 +9,11 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { updateUserState } from "./../../store/slices/auth";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 function Login() {
   const [values, setValues] = useState({
     email: "",
@@ -22,7 +27,19 @@ function Login() {
   const navigate = useNavigate();
   const auth = useSelector((state) => state.auth.userState); // user auth state
   const dispatch = useDispatch();
+  const [openMsg, setOpenMsg] = useState(false);
 
+  const handleClick = () => {
+    setOpenMsg(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpenMsg(false);
+  };
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -74,6 +91,8 @@ function Login() {
         localStorage.setItem("credentials", logInUser);
         navigate("/");
         dispatch(updateUserState());
+      } else {
+        handleClick();
       }
     } else {
       setErrors((prev) => {
@@ -121,6 +140,20 @@ function Login() {
             </Link>
           </span>
         </div>
+
+        <Snackbar open={openMsg} autoHideDuration={3000} onClose={handleClose}>
+          <Alert
+            onClose={handleClose}
+            severity="error"
+            sx={{
+              "& .MuiAlert-icon, & .MuiAlert-action": {
+                flexBasis: "10%",
+              },
+            }}
+          >
+            make sure you are registered!
+          </Alert>
+        </Snackbar>
       </form>
     </FormLayout>
   );

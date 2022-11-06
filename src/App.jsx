@@ -9,6 +9,7 @@ import Cart from "./Components/Cart/Cart";
 import OnlyAuthUser from "./guard/OnlyAuthUser";
 import MainLayout from "./Layout/MainLayout";
 import UnAuth from "./guard/UnAuth";
+import Transitions from "./Components/Transitions/Transitions";
 function App() {
   return (
     <div className="App">
@@ -17,7 +18,9 @@ function App() {
           path="/"
           element={
             <MainLayout>
-              <Home />
+              <Transitions>
+                <Home />
+              </Transitions>
             </MainLayout>
           }
         />
@@ -25,7 +28,9 @@ function App() {
           path="/categories"
           element={
             <MainLayout>
-              <Category />
+              <Transitions>
+                <Category />
+              </Transitions>
             </MainLayout>
           }
         />
@@ -33,7 +38,9 @@ function App() {
           path="/categories/:productID"
           element={
             <MainLayout>
-              <ProductPage />
+              <Transitions>
+                <ProductPage />
+              </Transitions>
             </MainLayout>
           }
         />
@@ -42,7 +49,9 @@ function App() {
           element={
             <UnAuth>
               <MainLayout>
-                <Login />
+                <Transitions>
+                  <Login />
+                </Transitions>
               </MainLayout>
             </UnAuth>
           }
@@ -52,7 +61,9 @@ function App() {
           element={
             <UnAuth>
               <MainLayout>
-                <Register />
+                <Transitions>
+                  <Register />
+                </Transitions>
               </MainLayout>
             </UnAuth>
           }
@@ -62,7 +73,9 @@ function App() {
           element={
             <OnlyAuthUser>
               <MainLayout>
-                <Cart />
+                <Transitions>
+                  <Cart />
+                </Transitions>
               </MainLayout>
             </OnlyAuthUser>
           }

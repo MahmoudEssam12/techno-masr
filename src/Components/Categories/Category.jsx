@@ -40,9 +40,6 @@ function Category() {
   const [categoriesFilter, setCategoriesFilter] = useState([]);
   const [page, setPage] = useState(0);
 
-  const handlePageChange = (event, value) => {
-    setPage(value);
-  };
   const filteredProducts = data
     .filter((product) => {
       return product.name.toLowerCase().includes(searchValue.toLowerCase());
