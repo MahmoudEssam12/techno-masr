@@ -1,12 +1,12 @@
 # Getting Started with Create React App
 
 ## after setting things up there is some restrictions
-1- you will need to be logged in to add and open the cart page.
-2- when u submit your registeration the app will save your credentials in the localstorage.
-3- when you try to login the app will check for the credentials in your localstorage and if you have a property isLoggedIn false it will turn it to true
-4- if you are logged in and you try to type in the urlbar /login or /register you will be redirected to home.
-5- if you tried to go to cart when you r not logged in you will be redirected to login page
-6- price filter in products page has min price for the minimum value from the products and max takes it's value from the most expensive product
+1- you will need to be logged in to add and open the cart page.\
+2- when u submit your registeration the app will save your credentials in the localstorage.\
+3- when you try to login the app will check for the credentials in your localstorage and if you have a property isLoggedIn false it will turn it to true\
+4- if you are logged in and you try to type in the urlbar /login or /register you will be redirected to home.\
+5- if you tried to go to cart when you r not logged in you will be redirected to login page\
+6- price filter in products page has min price for the minimum value from the products and max takes it's value from the most expensive product\
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
