@@ -6,7 +6,6 @@ function OnlyAuthUser({ children }) {
   const location = useLocation();
 
   if (!token || !token.isLoggedIn) {
-    console.log("token is  false")
     return <Navigate to="/register" state={{ from: location }} replace />;
 
   }
