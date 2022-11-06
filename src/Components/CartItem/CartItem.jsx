@@ -29,10 +29,7 @@ function CartItem(props) {
     <div className={styles.cart_item}>
       <div className={styles.product_details}>
         <div className={styles.info}>
-          <img
-            src={`${process.env.REACT_APP_URL}/${props.image}`}
-            alt={props.image}
-          />
+          <img src={`/${props.image}`} alt={props.image} />
           <div>
             <h3>{props.name}</h3>
             <span className={styles.product_detail}>
