@@ -60,7 +60,7 @@ function ProductPage() {
       let ourProduct = data.filter(
         (product) => product.id === Number(params.productID)
       );
-      setMainImg(process.env.REACT_APP_URL + "/" + ourProduct[0].images[0]);
+      setMainImg("/" + ourProduct[0].images[0]);
       return ourProduct[0];
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -80,8 +80,8 @@ function ProductPage() {
                 <img
                   key={image}
                   onClick={changeImage}
-                  src={`${process.env.REACT_APP_URL}/${image}`}
-                  alt={`${process.env.REACT_APP_URL}/${image}`}
+                  src={`/${image}`}
+                  alt={`/${image}`}
                 />
               ))}
             </div>
