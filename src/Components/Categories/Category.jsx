@@ -16,6 +16,8 @@ import styles from "./Category.module.scss";
 import ProductCard from "../Card/ProductCard";
 import FormControl from "@mui/material/FormControl";
 import Pagination from "@mui/material/Pagination";
+import Alert from "@mui/material/Alert";
+
 const getCategories = () => {
   let categories = data.map((product) => product.category);
   let uniqueCategories = [...new Set([...categories])];
@@ -216,27 +218,39 @@ function Category() {
           </div>
         </nav>
         <section className={styles.products_grid}>
-          {filteredProducts
-            .slice([6 * page], [6 * (page + 1)])
-            .map((product) => (
-              <ProductCard
-                key={product.id}
-                image={product.images[0]}
-                title={product.name}
-                price={product.price}
-                description={product.description}
-                brand={product.brand}
-                rating={product.rating}
-                color={product.color}
-                inStock={product.inStock}
-                id={product.id}
-              />
-            ))}
+          {filteredProducts.length ? (
+            filteredProducts
+              .slice([6 * page], [6 * (page + 1)])
+              .map((product) => (
+                <ProductCard
+                  key={product.id}
+                  image={product.images[0]}
+                  title={product.name}
+                  price={product.price}
+                  description={product.description}
+                  brand={product.brand}
+                  rating={product.rating}
+                  color={product.color}
+                  inStock={product.inStock}
+                  id={product.id}
+                />
+              ))
+          ) : (
+            <Alert
+              severity="info"
+              sx={{
+                maxHeight: "50px",
+                "& .MuiAlert-icon": { flexBasis: "10%" },
+              }}
+            >
+              There is no products right now!
+            </Alert>
+          )}
         </section>
       </section>
       <div className={styles.pagination_wrapper}>
         <Pagination
-          count={Math.ceil(data.length / 6)}
+          count={Math.ceil(filteredProducts.length / 6)}
           onChange={(e, p) => {
             setPage(p - 1);
           }}
